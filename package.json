@@ -2,7 +2,8 @@
   "name": "javaboot3",
   "version": "0.0.0",
   "engines": {
-    "node": "8.12.0"
+    "node": "8.12.0",
+    "npm": "6.4.1"
   },
   "scripts": {
     "ng": "ng",
@@ -10,7 +11,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -25,8 +27,11 @@
     "@angular/router": "~7.0.0",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
+    "express": "^4.17.1",
     "ng-dynamic": "^3.0.2",
+    "path": "^0.12.7",
     "rxjs": "~6.3.3",
+    "typescript": "~3.1.1",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
@@ -34,10 +39,11 @@
     "@angular/cli": "~7.0.4",
     "@angular/compiler-cli": "~7.0.0",
     "@angular/language-service": "~7.0.0",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
+    "enhanced-resolve": "^3.3.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.0.0",
