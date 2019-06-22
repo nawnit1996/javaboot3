@@ -1,6 +1,9 @@
 {
   "name": "javaboot3",
   "version": "0.0.0",
+  "engines": {
+    "node": "8.12.0"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
