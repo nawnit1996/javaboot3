@@ -60,6 +60,7 @@
       </ul>
     </div>
     <!-- <app-new-page [pageurl]="editUrl"  ></app-new-page> -->
-    <iframe [hidden]="activeTab" style="width: 100%;height:1500px" [src]="url"></iframe>
+    <!-- <iframe [hidden]="activeTab" style="width: 100%;height:1500px" src="    http://localhost:8080/admin/angular-directives"></iframe> -->
 
+    <iframe *ngIf="!activeTab" style="width: 100%;height:1500px" [src]="iframUrl"></iframe>
 </div>

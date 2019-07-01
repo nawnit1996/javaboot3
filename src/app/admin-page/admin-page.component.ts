@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormDetail } from "./../new-page/FormDetail";
 import { AddEditPageService } from '../add-edit-page.service';
 import { NewPageComponent } from '../new-page/new-page.component';
+import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'app-admin-page',
   templateUrl: './admin-page.component.html',
@@ -12,8 +13,9 @@ export class AdminPageComponent implements OnInit {
 
   articleList :FormDetail[];
   activeTab : boolean;
-  editUrl : String;
-  constructor(private adminPageService : AddEditPageService) {
+  editUrl : string;
+  iframUrl;
+  constructor(private adminPageService : AddEditPageService,private sanitizer: DomSanitizer) {
    
    }
 
@@ -28,14 +30,18 @@ console.log("inside fetchArticles method"+this.articleList)
 }
 
 editArticle(url : String) : void{
+  this.editUrl='http://localhost:8080/admin/'+url;
+  this.iframUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.editUrl);
+
   this.activeTab=false;
-  this.editUrl='http://localhost:8080/admin/test'+url;
- this.childComponent.editExisting(url);
+
+// this.childComponent.editExisting(url);
 }
 
 addNewArticle():void{
+  this.editUrl='http://localhost:8080/admin/angular-directive';
   this.activeTab=false;
-  this.editUrl='http://localhost:8080/admin/test'+null;
+
 }
 viewArticle(){
   if(this.childComponent.formDataModificationInd){
